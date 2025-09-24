@@ -17,11 +17,6 @@ const NavBar: React.FC = () => {
         console.log(`${iconName} icon clicked`);
     };
 
-    const activeLinkStyle = {
-        color: 'white',
-        borderBottom: '2px solid #3b82f6',
-    };
-
     return (
         <nav className="bg-slate-900 text-white px-6 py-3 flex items-center justify-between">
             <div className="flex items-center space-x-6">
@@ -34,8 +29,9 @@ const NavBar: React.FC = () => {
                         <NavLink
                             key={link.to}
                             to={link.to}
-                            style={({ isActive }) => isActive ? activeLinkStyle : {}}
-                            className="text-slate-300 hover:text-white pb-2"
+                            className={({ isActive }) =>
+                                `pb-2 hover:text-white ${isActive ? 'text-white border-b-2 border-blue-400' : 'text-slate-300'}`
+                            }
                         >
                             {link.text}
                         </NavLink>
@@ -51,7 +47,7 @@ const NavBar: React.FC = () => {
                         className="bg-slate-800 text-white pl-10 pr-4 py-2 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                     />
                 </div>
-                <Bell className="w-5 h-5 text-slate-300 hover:text-white cursor-pointer" onClick={() => handleIconClick('Bell')} />
+                <Bell className="w-5 h-5 text-slate-300 hover:text-white cursor-pointer" onClick={() => handleIconಕ್lick('Bell')} />
                 <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center cursor-pointer" onClick={() => handleIconClick('User')}>
                     <User className="w-5 h-5 text-white" />
                 </div>
